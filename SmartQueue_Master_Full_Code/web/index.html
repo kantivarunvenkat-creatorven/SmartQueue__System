@@ -1,0 +1,644 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SmartQueue | Next-Gen Multi-Sector Queue Management & Counter Allocation</title>
+  <meta name="description" content="Eliminate physical waiting lines with SmartQueue. Intelligent multi-counter allocation, digital queue passes with QR codes, real-time TV display boards, and AI queue prediction for Hospitals, Citizen Service Desks, Supermarkets, and Banks.">
+  <meta name="keywords" content="smart queue, queue management system, token system, hospital opd queue, citizen service token, bank counter allocation, kiosk ticket system">
+  <meta name="author" content="SmartQueue Technologies">
+  <meta name="theme-color" content="#0077b6">
+
+  <!-- Open Graph / Social Media Meta Tags -->
+  <meta property="og:title" content="SmartQueue | Intelligent Multi-Sector Queue Management">
+  <meta property="og:description" content="Revolutionary queue management with real-time counter routing, live TV signage, digital mobile passes, and AI wait time predictions.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="assets/images/hero_banner.jpg">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;700;800&family=Outfit:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Core Stylesheet -->
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+  <!-- Ambient Glowing Background Grid -->
+  <div class="bg-ambient"></div>
+  <div class="bg-grid"></div>
+
+  <!-- Top Sticky Navigation Bar -->
+  <header class="navbar" id="top-navbar">
+    <div class="container nav-inner">
+      <a href="#" class="brand-logo" id="brand-logo-link">
+        <div class="brand-icon">Q</div>
+        <span>SmartQueue</span>
+        <div class="brand-badge">
+          <span class="pulse-dot"></span>
+          <span>System Online</span>
+        </div>
+      </a>
+
+      <nav>
+        <ul class="nav-menu">
+          <li><a href="#sectors-section" class="nav-link">Sectors</a></li>
+          <li><a href="#kiosk-section" class="nav-link">Live Kiosk</a></li>
+          <li><a href="#tv-board-section" class="nav-link">TV Display</a></li>
+          <li><a href="#admin-section" class="nav-link">Staff Console</a></li>
+          <li><a href="#ai-assistant-section" class="nav-link">AI Assistant</a></li>
+          <li><a href="#mobile-app-section" class="nav-link">Mobile App</a></li>
+        </ul>
+      </nav>
+
+      <div class="nav-actions">
+        <!-- Voice Announcement Toggle -->
+        <button id="voice-toggle-btn" class="btn-icon-toggle active-announcer" title="Voice Announcements: ON" aria-label="Toggle Audio Announcements">
+          🔊
+        </button>
+
+        <!-- Theme Toggle (Dark/Light) -->
+        <button id="theme-toggle-btn" class="btn-icon-toggle" title="Toggle Theme" aria-label="Toggle Theme">
+          ☀️
+        </button>
+
+        <!-- Primary CTA -->
+        <a href="#kiosk-section" class="btn-primary" id="nav-cta-kiosk">
+          <span>🎫 Get Token</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- ========================================================================
+         HERO SECTION
+         ======================================================================== -->
+    <section class="hero" id="hero-section">
+      <div class="container hero-grid">
+        <div class="hero-content">
+          <div class="hero-eyebrow">
+            <span>⚡ NEXT-GEN MULTI-SECTOR QUEUE INTELLIGENCE</span>
+          </div>
+          <h1 class="hero-title">
+            Zero Waiting Confusion.<br>
+            <span class="gradient-text">Real-Time Counter Allocation.</span>
+          </h1>
+          <p class="hero-description">
+            Powering modern Hospital OPDs, Citizen E-Governance Centers, Supermarkets, and Bank Branches. Eliminate crowded waiting rooms with smart digital token passes, AI wait-time estimation, and crystal-clear voice callouts.
+          </p>
+
+          <div class="hero-actions">
+            <a href="#kiosk-section" class="btn-primary" id="hero-btn-issue-token">
+              <span>🎟️ Issue Digital Token</span>
+            </a>
+            <a href="#tv-board-section" class="btn-secondary" id="hero-btn-view-tv">
+              <span>🖥️ Launch TV Display Board</span>
+            </a>
+            <a href="#admin-section" class="btn-secondary" id="hero-btn-staff-console">
+              <span>⚡ Staff Console</span>
+            </a>
+          </div>
+
+          <!-- Hero Metrics Ticker -->
+          <div class="hero-metrics">
+            <div class="metric-card">
+              <span class="metric-value">94.2%</span>
+              <span class="metric-label">Wait Time Slashed</span>
+            </div>
+            <div class="metric-card">
+              <span class="metric-value">3.8 min</span>
+              <span class="metric-label">Avg Turnaround</span>
+            </div>
+            <div class="metric-card">
+              <span class="metric-value">4 Desks</span>
+              <span class="metric-label">Auto Routed</span>
+            </div>
+            <div class="metric-card">
+              <span class="metric-value">100%</span>
+              <span class="metric-label">Real-Time Sync</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Hero Showcase Card -->
+        <div class="hero-visual">
+          <div class="hero-card-wrapper">
+            <img src="assets/images/hero_banner.jpg" alt="SmartQueue Lobby Display and TV Signage in Hospital and Public Center" class="hero-card-banner">
+            
+            <div class="hero-live-token-pill">
+              <div>
+                <span style="font-size: 0.72rem; color: var(--text-dim); text-transform: uppercase; font-weight: 700;">Live Callout In Progress</span>
+                <div class="live-token-number" id="hero-preview-token-num">H01</div>
+              </div>
+              <div class="live-token-meta" style="text-align: right;">
+                <span class="token-status-pill serving">Now Serving</span>
+                <div style="font-size: 0.85rem; font-weight: 700; color: var(--text-main);" id="hero-preview-token-desk">Counter 1 (Medical Care)</div>
+                <div style="font-size: 0.75rem; color: var(--text-muted);" id="hero-preview-token-service">Cardiology Specialist</div>
+              </div>
+            </div>
+
+            <div style="display: flex; justify-content: space-between; align-items: center; font-size: 0.8rem; color: var(--text-dim);">
+              <span>⚡ Synced with Firestore & Web Audio</span>
+              <span style="color: var(--status-completed); font-weight: 700;">● Active Dispatch</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================================
+         SECTOR SOLUTIONS SHOWCASE (Hospital, Citizen, Store, Bank)
+         ======================================================================== -->
+    <section class="section" id="sectors-section" style="background: var(--bg-surface-elevated); border-top: 1px solid var(--border-subtle); border-bottom: 1px solid var(--border-subtle);">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">Multi-Sector Architecture</span>
+          <h2 class="section-title">Built For Every High-Traffic Facility</h2>
+          <p class="section-subtitle">
+            SmartQueue dynamically routes tickets to specialized counters with customized service requirements, token prefixes, and average turnaround timers.
+          </p>
+        </div>
+
+        <!-- Sector Tabs -->
+        <div class="sector-tabs" id="sector-tabs-container"></div>
+
+        <!-- Dynamic Sector Details Card -->
+        <div id="sector-detail-container"></div>
+      </div>
+    </section>
+
+    <!-- ========================================================================
+         INTERACTIVE CITIZEN KIOSK (Generate Digital Token)
+         ======================================================================== -->
+    <section class="section" id="kiosk-section">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">Self-Service Terminal</span>
+          <h2 class="section-title">Interactive Citizen Queue Kiosk</h2>
+          <p class="section-subtitle">
+            Select your required sector and service to generate an official digital token pass with instant counter assignment, QR barcode, and live wait estimation.
+          </p>
+        </div>
+
+        <div class="kiosk-grid">
+          <!-- Form Card -->
+          <div class="kiosk-form-card">
+            <h3 style="font-size: 1.45rem; margin-bottom: 0.5rem;">Issue Instant Token Pass</h3>
+            <p style="color: var(--text-muted); font-size: 0.88rem; margin-bottom: 1.75rem;">
+              Fill in your details below to join the live waiting queue. You will receive an audio chime when called.
+            </p>
+
+            <form id="kiosk-token-form">
+              <div class="form-group">
+                <label for="kiosk-sector-select" class="form-label">1. Select Facility Sector</label>
+                <select id="kiosk-sector-select" class="form-select" required></select>
+              </div>
+
+              <div class="form-group">
+                <label for="kiosk-service-select" class="form-label">2. Select Specific Service / Desk</label>
+                <select id="kiosk-service-select" class="form-select" required></select>
+              </div>
+
+              <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+                <div class="form-group">
+                  <label for="kiosk-name-input" class="form-label">Visitor / Patient Name</label>
+                  <input type="text" id="kiosk-name-input" class="form-input" placeholder="e.g. Ramesh Kumar" required value="Amit Sharma">
+                </div>
+
+                <div class="form-group">
+                  <label for="kiosk-phone-input" class="form-label">Mobile Number / Email</label>
+                  <input type="text" id="kiosk-phone-input" class="form-input" placeholder="+91 98765 43210" value="+91 98765 43210">
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="kiosk-note-input" class="form-label">Additional Details / Item Notes</label>
+                <textarea id="kiosk-note-input" class="form-textarea" placeholder="Enter symptoms or requested services..."></textarea>
+              </div>
+
+              <button type="submit" class="btn-primary" style="width: 100%; padding: 0.95rem; font-size: 1.05rem;" id="kiosk-submit-btn">
+                <span>🎫 Generate Digital Queue Ticket</span>
+              </button>
+            </form>
+          </div>
+
+          <!-- Digital Pass Render Area -->
+          <div id="ticket-pass-area">
+            <div class="ticket-pass" style="opacity: 0.85;">
+              <div class="ticket-header">
+                <div class="ticket-brand">
+                  <div class="brand-icon" style="width: 2rem; height: 2rem; font-size: 1rem;">Q</div>
+                  <span>SmartQueue Pass</span>
+                </div>
+                <div class="token-status-pill waiting">Preview Mode</div>
+              </div>
+
+              <div class="ticket-token-display">
+                <div class="token-lbl">Token Number</div>
+                <div class="token-num">H01</div>
+                <div style="font-size: 0.82rem; color: var(--text-dim); margin-top: 0.25rem;">
+                  Sector: <strong>Hospital & Healthcare</strong>
+                </div>
+              </div>
+
+              <div class="ticket-info-grid">
+                <div class="ticket-info-item">
+                  <span class="lbl">Allocated Desk</span>
+                  <span class="val" style="color: var(--primary-light);">Counter 1 (Medical Care)</span>
+                </div>
+                <div class="ticket-info-item">
+                  <span class="lbl">Visitor</span>
+                  <span class="val">Amit Sharma</span>
+                </div>
+                <div class="ticket-info-item">
+                  <span class="lbl">Service</span>
+                  <span class="val">Cardiology Specialist</span>
+                </div>
+                <div class="ticket-info-item">
+                  <span class="lbl">Est. Wait</span>
+                  <span class="val" style="color: var(--status-waiting);">~3 mins</span>
+                </div>
+              </div>
+
+              <div class="ticket-qr-area">
+                <div class="ticket-qr-box">
+                  <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                    <rect width="100" height="100" fill="white"/>
+                    <path d="M10,10 h30 v30 h-30 z M15,15 v20 h20 v-20 z M22,22 h6 v6 h-6 z" fill="#023e8a"/>
+                    <path d="M60,10 h30 v30 h-30 z M65,15 v20 h20 v-20 z M72,22 h6 v6 h-6 z" fill="#023e8a"/>
+                    <path d="M10,60 h30 v30 h-30 z M15,65 v20 h20 v-20 z M22,72 h6 v6 h-6 z" fill="#023e8a"/>
+                    <rect x="45" y="10" width="8" height="15" fill="#023e8a"/>
+                    <rect x="45" y="30" width="8" height="25" fill="#023e8a"/>
+                    <rect x="58" y="45" width="15" height="8" fill="#023e8a"/>
+                    <rect x="78" y="45" width="12" height="8" fill="#023e8a"/>
+                    <rect x="45" y="60" width="18" height="18" fill="#023e8a"/>
+                    <rect x="70" y="60" width="20" height="8" fill="#023e8a"/>
+                    <rect x="70" y="75" width="20" height="15" fill="#023e8a"/>
+                  </svg>
+                </div>
+                <div style="font-size: 0.75rem; color: var(--text-dim); text-transform: uppercase; font-weight: 700;">
+                  Fill form on the left to issue real pass
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================================
+         LIVE WAITING ROOM TV DISPLAY BOARD (Digital Signage Mode)
+         ======================================================================== -->
+    <section class="section" id="tv-board-section" style="background: #020617;">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag" style="color: var(--accent);">Waiting Hall Broadcast</span>
+          <h2 class="section-title" style="color: #ffffff;">Live Waiting Room TV Display Board</h2>
+          <p class="section-subtitle" style="color: #94a3b8;">
+            Full-screen digital signage board for wall-mounted TV monitors. Synchronized in real-time with desk calls, audio chimes, and automatic speech voice announcements.
+          </p>
+        </div>
+
+        <div class="tv-board-container" id="tv-display-board">
+          <div class="tv-header">
+            <div style="display: flex; align-items: center; gap: 1rem;">
+              <div class="brand-icon" style="width: 2.4rem; height: 2.4rem;">Q</div>
+              <div>
+                <h3 style="font-size: 1.35rem; color: #ffffff;">SMARTQUEUE CENTRAL DISPLAY</h3>
+                <span style="font-size: 0.75rem; color: var(--status-completed); font-weight: 700;">● ALL 4 COUNTERS ONLINE</span>
+              </div>
+            </div>
+
+            <div style="display: flex; align-items: center; gap: 1.5rem;">
+              <div class="tv-clock" id="tv-live-clock">12:00:00</div>
+              <button class="btn-secondary" id="tv-fullscreen-btn" style="padding: 0.5rem 1rem; font-size: 0.85rem; border-color: rgba(255,255,255,0.2);">
+                ⛶ Fullscreen TV Mode
+              </button>
+            </div>
+          </div>
+
+          <!-- 4 TV Counter Screens -->
+          <div class="tv-counters-grid" id="tv-counters-container"></div>
+
+          <!-- Marquee Ticker Stream -->
+          <div class="tv-ticker-bar">
+            <span class="tv-ticker-tag">LIVE FEED</span>
+            <div class="tv-ticker-content" id="tv-ticker-stream">
+              UPCOMING IN QUEUE: Loading live tokens...
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================================
+         STAFF / ADMIN COMMAND CENTER (Operator Desk Controls)
+         ======================================================================== -->
+    <section class="section" id="admin-section">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">Operator Console</span>
+          <h2 class="section-title">Staff / Admin Command Center</h2>
+          <p class="section-subtitle">
+            Counter operators and facility managers can manage live queues with one click. Call next tokens, recall unattended visitors, and review real-time performance indicators.
+          </p>
+        </div>
+
+        <div class="admin-card">
+          <div class="admin-header-row">
+            <div>
+              <h3 style="font-size: 1.4rem;">Queue Operator Station</h3>
+              <p style="color: var(--text-dim); font-size: 0.85rem;">Active Desk Routing & Turnaround Metrics</p>
+            </div>
+
+            <!-- Counter Filters -->
+            <div style="display: flex; flex-wrap: wrap; gap: 0.5rem; align-items: center;">
+              <button class="sector-tab-btn active admin-counter-filter-btn" data-filter="all" style="padding: 0.5rem 1rem; font-size: 0.85rem;">
+                All Desks
+              </button>
+              <button class="sector-tab-btn admin-counter-filter-btn" data-filter="1" style="padding: 0.5rem 1rem; font-size: 0.85rem;">
+                Counter 1 (Hospital)
+              </button>
+              <button class="sector-tab-btn admin-counter-filter-btn" data-filter="2" style="padding: 0.5rem 1rem; font-size: 0.85rem;">
+                Counter 2 (Citizen)
+              </button>
+              <button class="sector-tab-btn admin-counter-filter-btn" data-filter="3" style="padding: 0.5rem 1rem; font-size: 0.85rem;">
+                Counter 3 (Store)
+              </button>
+              <button class="sector-tab-btn admin-counter-filter-btn" data-filter="4" style="padding: 0.5rem 1rem; font-size: 0.85rem;">
+                Counter 4 (Bank)
+              </button>
+              <button class="btn-primary" id="admin-quick-walkin-btn" style="padding: 0.5rem 1.1rem; font-size: 0.85rem;">
+                ➕ Quick Walk-in
+              </button>
+            </div>
+          </div>
+
+          <!-- KPI Summary Boxes -->
+          <div class="admin-kpis">
+            <div class="admin-kpi-box">
+              <div class="admin-kpi-icon" style="background: rgba(251, 133, 0, 0.15); color: var(--status-waiting);">⏳</div>
+              <div>
+                <div class="admin-kpi-val" id="kpi-waiting-count">0</div>
+                <div class="admin-kpi-lbl">Citizens Waiting</div>
+              </div>
+            </div>
+
+            <div class="admin-kpi-box">
+              <div class="admin-kpi-icon" style="background: rgba(0, 119, 182, 0.15); color: var(--primary-light);">⚡</div>
+              <div>
+                <div class="admin-kpi-val" id="kpi-serving-count">0</div>
+                <div class="admin-kpi-lbl">Currently Serving</div>
+              </div>
+            </div>
+
+            <div class="admin-kpi-box">
+              <div class="admin-kpi-icon" style="background: rgba(45, 198, 83, 0.15); color: var(--status-completed);">✅</div>
+              <div>
+                <div class="admin-kpi-val" id="kpi-completed-count">0</div>
+                <div class="admin-kpi-lbl">Completed Today</div>
+              </div>
+            </div>
+
+            <div class="admin-kpi-box">
+              <div class="admin-kpi-icon" style="background: rgba(72, 202, 228, 0.15); color: var(--accent);">⏱️</div>
+              <div>
+                <div class="admin-kpi-val" id="kpi-avg-wait">3.8m</div>
+                <div class="admin-kpi-lbl">Avg Wait Time</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Queue Management Table -->
+          <div class="queue-table-wrapper">
+            <table class="queue-table">
+              <thead>
+                <tr>
+                  <th>Token</th>
+                  <th>Visitor Name</th>
+                  <th>Service / Sector</th>
+                  <th>Desk</th>
+                  <th>Status</th>
+                  <th>Operator Actions</th>
+                </tr>
+              </thead>
+              <tbody id="admin-queue-tbody">
+                <!-- Populated via JavaScript -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================================
+         AI QUEUE ASSISTANT (Gemini-Powered Knowledge & Guidance)
+         ======================================================================== -->
+    <section class="section" id="ai-assistant-section" style="background: var(--bg-surface-elevated); border-top: 1px solid var(--border-subtle); border-bottom: 1px solid var(--border-subtle);">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">Conversational Intelligence</span>
+          <h2 class="section-title">SmartQueue AI Assistant</h2>
+          <p class="section-subtitle">
+            Visitors can check live token status, inquiry document requirements before reaching the counter, and verify service guidelines in real-time.
+          </p>
+        </div>
+
+        <div class="ai-assistant-card">
+          <!-- Left Info & Guidance -->
+          <div>
+            <h3 style="font-size: 1.65rem; margin-bottom: 0.75rem;">Intelligent Guidance for Visitors</h3>
+            <p style="color: var(--text-muted); font-size: 0.92rem; line-height: 1.6; margin-bottom: 1.5rem;">
+              Never arrive at the counter missing a critical document. Ask the SmartQueue AI Assistant about your exact queue wait time or specific sector guidelines.
+            </p>
+
+            <div style="background: var(--bg-surface); padding: 1.25rem; border-radius: 16px; border: 1px solid var(--border-subtle); margin-bottom: 1.5rem;">
+              <h4 style="font-size: 0.95rem; margin-bottom: 0.6rem; color: var(--accent);">💡 Try Asking These Questions:</h4>
+              <div class="ai-quick-pills">
+                <button class="ai-pill-btn">⏱️ How much time for my turn?</button>
+                <button class="ai-pill-btn">🏥 What to bring for Heart Specialist?</button>
+                <button class="ai-pill-btn">🏢 Documents for Aadhaar phone link</button>
+                <button class="ai-pill-btn">🏢 PAN card changes documents</button>
+                <button class="ai-pill-btn">🏦 How to open zero balance account?</button>
+                <button class="ai-pill-btn">🛒 Are Maida and Sugar in stock?</button>
+              </div>
+            </div>
+
+            <div style="display: flex; gap: 0.85rem; align-items: center; font-size: 0.82rem; color: var(--text-dim);">
+              <span style="color: var(--status-completed); font-size: 1.1rem;">✓</span>
+              <span>Directly integrated with the Flutter App AI Chatbot Service</span>
+            </div>
+          </div>
+
+          <!-- Chat Window -->
+          <div class="ai-chat-interface">
+            <div class="ai-chat-header">
+              <div class="ai-avatar">
+                <div class="ai-avatar-icon">✦</div>
+                <div>
+                  <div>SmartQueue AI Agent</div>
+                  <div style="font-size: 0.72rem; color: var(--status-completed); font-weight: 600;">Active & Ready</div>
+                </div>
+              </div>
+              <span style="font-size: 0.75rem; color: var(--text-dim);">Gemini Powered</span>
+            </div>
+
+            <div class="ai-messages-list" id="ai-chat-messages">
+              <div class="chat-bubble bot">
+                👋 Hello! I am the SmartQueue AI Assistant.
+                
+                You can ask me:
+                • "How much time is left for my turn?"
+                • "What documents do I need for Aadhaar or PAN?"
+                • "What should I bring for doctor consultations?"
+                
+                How can I assist you right now?
+              </div>
+            </div>
+
+            <div class="ai-input-area">
+              <input type="text" id="ai-chat-input" class="form-input" placeholder="Type your queue or document question..." style="border-radius: 10px;">
+              <button class="btn-primary" id="ai-chat-send-btn" style="padding: 0.6rem 1.25rem;">
+                Send
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================================
+         MOBILE APP SHOWCASE
+         ======================================================================== -->
+    <section class="section" id="mobile-app-section">
+      <div class="container mobile-app-grid">
+        <!-- Mockup Visual -->
+        <div class="mobile-mockup-frame">
+          <img src="assets/images/mobile_mockup.jpg" alt="SmartQueue Flutter Mobile Application running on Android and iOS" class="mobile-mockup-img">
+        </div>
+
+        <!-- Description & Downloads -->
+        <div>
+          <span class="section-tag">Cross-Platform Flutter Experience</span>
+          <h2 class="section-title">The Complete Mobile Companion App</h2>
+          <p class="section-subtitle" style="text-align: left; margin-bottom: 1.5rem;">
+            Visitors can hold their queue pass right in their pocket. Receive background push vibrations when only 3 members remain ahead of you so you never miss your turn.
+          </p>
+
+          <ul class="feature-check-list">
+            <li class="feature-check-item">
+              <div class="check-icon">✓</div>
+              <div>
+                <strong>Built with Flutter & Dart</strong>
+                <p style="font-size: 0.85rem; color: var(--text-muted);">Shared codebase across Android, iOS, and Web with 60 FPS buttery smooth transitions.</p>
+              </div>
+            </li>
+            <li class="feature-check-item">
+              <div class="check-icon">✓</div>
+              <div>
+                <strong>Google Sign-In & Role Gating</strong>
+                <p style="font-size: 0.85rem; color: var(--text-muted);">Instant Gmail authentication with dedicated Admin Command Center and Visitor views.</p>
+              </div>
+            </li>
+            <li class="feature-check-item">
+              <div class="check-icon">✓</div>
+              <div>
+                <strong>Mobile Scanner Hardware Integration</strong>
+                <p style="font-size: 0.85rem; color: var(--text-muted);">Desk operators can scan the visitor's digital QR ticket using device camera via <code>mobile_scanner</code>.</p>
+              </div>
+            </li>
+            <li class="feature-check-item">
+              <div class="check-icon">✓</div>
+              <div>
+                <strong>Real-Time Cloud Firestore Sync</strong>
+                <p style="font-size: 0.85rem; color: var(--text-muted);">Instant state synchronization between mobile phones, counter desks, and public TV signage.</p>
+              </div>
+            </li>
+          </ul>
+
+          <div style="display: flex; flex-wrap: wrap; gap: 1rem; align-items: center;">
+            <a href="#kiosk-section" class="btn-primary">
+              <span>📱 Launch Web Mobile Pass</span>
+            </a>
+            <a href="https://github.com" target="_blank" rel="noopener" class="btn-secondary">
+              <span>📦 Download Android APK (v1.0.0)</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ========================================================================
+       FOOTER
+       ======================================================================== -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <div class="brand-logo" style="margin-bottom: 0.75rem;">
+            <div class="brand-icon" style="width: 2.2rem; height: 2.2rem; font-size: 1.1rem;">Q</div>
+            <span>SmartQueue</span>
+          </div>
+          <p class="footer-brand-desc">
+            Advanced multi-sector queue management & automated counter allocation platform for Healthcare, Citizen E-Governance, Retail, and Banking facilities.
+          </p>
+          <div style="display: flex; gap: 0.5rem; align-items: center; font-size: 0.8rem; color: var(--status-completed);">
+            <span class="pulse-dot"></span>
+            <span>All Services Operational • 99.98% Uptime</span>
+          </div>
+        </div>
+
+        <div>
+          <div class="footer-col-title">Sectors Supported</div>
+          <ul class="footer-links">
+            <li><a href="#sectors-section" class="footer-link">Hospital & Healthcare (OPD)</a></li>
+            <li><a href="#sectors-section" class="footer-link">Citizen Service Center (Aadhaar/PAN)</a></li>
+            <li><a href="#sectors-section" class="footer-link">General Store & Supermarket</a></li>
+            <li><a href="#sectors-section" class="footer-link">Bank & Financial Tellers</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <div class="footer-col-title">Applications</div>
+          <ul class="footer-links">
+            <li><a href="#kiosk-section" class="footer-link">Self-Service Visitor Kiosk</a></li>
+            <li><a href="#tv-board-section" class="footer-link">Waiting Room TV Signage</a></li>
+            <li><a href="#admin-section" class="footer-link">Operator Command Desk</a></li>
+            <li><a href="#ai-assistant-section" class="footer-link">AI Queue Assistant</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <div class="footer-col-title">Technology</div>
+          <ul class="footer-links">
+            <li><a href="#mobile-app-section" class="footer-link">Flutter 3.x Multiplatform</a></li>
+            <li><a href="#mobile-app-section" class="footer-link">Firebase Firestore & Auth</a></li>
+            <li><a href="#tv-board-section" class="footer-link">Web Speech & Audio APIs</a></li>
+            <li><a href="#ai-assistant-section" class="footer-link">Gemini AI Assistant Engine</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>
+          © 2026 SmartQueue Master System. All rights reserved.
+        </div>
+        <div style="display: flex; gap: 1.5rem;">
+          <a href="#" class="footer-link">Privacy Policy</a>
+          <a href="#" class="footer-link">Terms of Service</a>
+          <a href="#" class="footer-link">Security Whitepaper</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Application Scripts -->
+  <script src="js/catalog.js"></script>
+  <script src="js/store.js"></script>
+  <script src="js/ai-assistant.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
